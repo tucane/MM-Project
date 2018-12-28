@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<body>
+    <h3>Building Input</h3>
+    <form action="prediction" method="post">
+
+        {{ form.hidden_tag() }}
+
+        <div>
+            <p>Input Date:</p>
+            <input type="date" name="date">
+        </div>
+
+        <div>
+            <p>Building Type</p>
+            <select name="building_type">
+                <option value="Glass">Glass</option>
+                <option value="Steel">Steel</option>
+                <option value="Concrete">Concrete</option>
+                <option value="Wood">Wood</option>
+            </select>
+        </div>
+
+        <div>
+            <p>Setpoint Temperature</p>
+            <input type="number" value="20" step="0.1" name="set_temp">
+        </div>
+
+        <div>
+            <p>Solar Irradiation Normal</p>
+            <input type="number" step="1" name="rad_norm">
+        </div>
+
+        <div>
+            <p>Solar Irradiation Horizontal</p>
+            <input type="number" step="1" name="rad_hor">
+        </div>
+
+        <div>
+            <p>Outside Temperature</p>
+            <input type="number" value="20" step="0.1" name="out_temp">
+        </div>
+
+        <div>
+            <p></p>
+            <input type="submit" value="Estimate" name="estimate">
+        </div>
+    </form>
+</body>
+</html>
