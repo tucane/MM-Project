@@ -2,52 +2,114 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/style.css?some_var_to_bust_cache=14971329">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
     <title>Index</title>
 </head>
 <body>
-    <h3>Building Input</h3>
-    <form action="prediction" method="post">
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for message in messages %}
+          <div class="alert alert-danger alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            {{ message }}
+          </div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+    <h2 align="center">Building Input</h2>
+    <form action="prediction" enctype = "multipart/form-data" method="post" id="building-form">
 
         {{ form.hidden_tag() }}
-
-        <div>
-            <p>Input Date:</p>
-            <input type="date" name="date">
+        <div class='row bot-buf'>
+            <div class='col-md-3' id="building-name-form">
+                <label for="building_name" data-toggle="tooltip" title="Name of the building" class="input-label">Building Name:</label>
+                <input type="text" name="building_name" id="building_name" class="form-control">
+            </div>
+        </div>
+        <div class="row bot-buf">
+            <div class="col-md-3" id="building-volume-form">
+                <label for="building_volume" data-toggle="tooltip" title="Total volume of the building" class="input-label">Building Volume:</label>
+                <input type="number" value="700" step="0.1" name="building_volume" id="building_volume" class="form-control">
+            </div>
+        </div>
+        <div class='row bot-buf'>
+            <div class='col-md-3' id="date-form">
+                <label for="date" data-toggle="tooltip" title="Date of the input">Input Date:</label>
+                <input type="date" name="date" id="date" class="form-control">
+            </div>
+        </div>
+        <div class="row bot-buf">
+            <div class="col-md-3" id="building-type-form">
+                <label for="bt" data-toggle="tooltip" title="Building material">Building Type:</label>
+                <select name="building_type" id="bt" class="form-control">
+                    <option value="Glass">Glass</option>
+                    <option value="Steel">Steel</option>
+                    <option value="Concrete">Concrete</option>
+                    <option value="Wood">Wood</option>
+                </select>
+            </div>
         </div>
 
-        <div>
-            <p>Building Type</p>
-            <select name="building_type">
-                <option value="Glass">Glass</option>
-                <option value="Steel">Steel</option>
-                <option value="Concrete">Concrete</option>
-                <option value="Wood">Wood</option>
-            </select>
+        <div class="row bot-buf">
+            <div class="col-md-3" id="set-temp-form">
+                <label for="st" data-toggle="tooltip" title="Inside temperature setting">Setpoint Temperature(C):</label>
+                <input type="number" value="20" step="0.1" name="set_temp" id="st" class="form-control">
+            </div>
         </div>
 
-        <div>
-            <p>Setpoint Temperature</p>
-            <input type="number" value="20" step="0.1" name="set_temp">
+        <div class="row bot-buf">
+            <div class="col-md-3" id="rad-norm-form">
+                <label for="rn">Solar Irradiation Normal(Unit)</label>
+                <input type="number" step="1" name="rad_norm" value="0" id="rn" class="form-control">
+            </div>
         </div>
 
-        <div>
-            <p>Solar Irradiation Normal</p>
-            <input type="number" step="1" name="rad_norm">
+        <div class="row bot-buf">
+            <div class="col-md-3" id="rad-hor-form">
+                <label for="rh">Solar Irradiation Horizontal(Unit)</label>
+                <input type="number" step="1" name="rad_hor" value="0" id="rh" class="form-control">
+            </div>
         </div>
 
-        <div>
-            <p>Solar Irradiation Horizontal</p>
-            <input type="number" step="1" name="rad_hor">
+        <div class='row bot-buf'>
+            <div class='col-md-3' id="location-form">
+                <label for="location" data-toggle="tooltip" title="Location of the building(city)">Building Location:</label>
+                <input type="text" name="location" id="location" class="form-control">
+            </div>
         </div>
 
-        <div>
-            <p>Outside Temperature</p>
-            <input type="number" value="20" step="0.1" name="out_temp">
+        <div class="row bot-buf">
+            <div class="col-md-3" id="out-temp-form">
+                <label for="ot" data-toggle="tooltip" title="Outside temperature">Outside Temperature(C)</label>
+                <input type="number" value="20" step="0.1" name="out_temp" id="ot" class="form-control">
+            </div>
+        </div>
+        <div class="row bot-buf">
+            <div class="col-md-3" id="humidity-form">
+                <label for="ot" data-toggle="tooltip" title="Relative humidity">Humidity</label>
+                <input type="number" step="0.1" name="humidity" id="humidity" class="form-control">
+            </div>
         </div>
 
-        <div>
-            <p></p>
-            <input type="submit" value="Estimate" name="estimate">
+        <div class="row bot-buf">
+            <div class="col-md-3" id="file-form">
+                <label for="input_file">Or upload data in csv file</label>
+                <input class="custom-file-input" id="input_file" name="input_file" type="file">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3" id="est-form">
+                <input type="submit" value="Estimate" name="estimate" id="est" data-toggle="tooltip" title="Estimate energy consumption" class="btn btn-primary btn-lg">
+            </div>
         </div>
     </form>
 </body>
