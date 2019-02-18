@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/ML_Fullstack" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/MM_Machine Learning/Mott-MacDonald-Energy" vcs="Git" />
+  </component>
+</project>
