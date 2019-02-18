@@ -1,7 +1,13 @@
+import os
+import sys
+module_dir = os.path.dirname(__file__)
+sys.path.append(os.path.join(module_dir, '../data_utils/'))
+
 from sklearn.externals import joblib
 from sklearn.ensemble import RandomForestRegressor
 import numpy as np
 import pandas as pd
+from utils import fill_empty_data, getRValue
 
 class Model:
 
@@ -61,22 +67,4 @@ def file_to_data(df):
     df.fillna(0, inplace=True)
 
     return df.values
-
-
-#framework method for filling in the data
-def fill_empty_data(df):
-    df.fillna(df.mean(), inplace=True)
-
-    #or implement your own
-
-
-def getRValue():
-    return 100
-
-    #TODO fill in formula
-
-#framework for checking validity of the input data
-def validateData():
-    pass
-    #fill in detail here
 

@@ -1,6 +1,5 @@
 import os
 import sys
-
 module_dir = os.path.dirname(__file__)
 sys.path.append(os.path.join(module_dir, '../data_utils/'))
 
@@ -14,7 +13,7 @@ from utils import generate_table
 app = Flask(__name__)
 app.secret_key = 'development key'
 
-model = Model('weights/default_weights.joblib')
+model = Model(os.path.join(module_dir, 'weights/default_weights.joblib'))
 
 def run_app():
     app.run()

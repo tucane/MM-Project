@@ -132,7 +132,15 @@ def fill_empty_data(df):
 
     #or implement your own
 
+def getRValue():
+    return 100
 
+    #TODO fill in formula
+
+#framework for checking validity of the input data
+def validateData():
+    pass
+    #fill in detail here
 def generate_table(data, form):
     #create header
     excluded = ['estimate', 'input_file', 'csrf_token']
@@ -143,4 +151,6 @@ def generate_table(data, form):
     results.extend(data[0])
 
     return [headers, results]
+
+
 
