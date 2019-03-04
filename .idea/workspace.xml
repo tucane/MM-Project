@@ -4018,8 +4018,12 @@
       <change afterPath="$PROJECT_DIR$/MM_Machine Learning/Mott-MacDonald-Energy/.idea/modules.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/MM_Machine Learning/Mott-MacDonald-Energy/.idea/vcs.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/MM_Machine Learning/Mott-MacDonald-Energy/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data_utils/data_utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ML_Fullstack/application.py" beforeDir="false" afterPath="$PROJECT_DIR$/ML_Fullstack/application.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ML_Fullstack/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/ML_Fullstack/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ML_Fullstack/inference.py" beforeDir="false" afterPath="$PROJECT_DIR$/ML_Fullstack/inference.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ML_Fullstack/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/ML_Fullstack/templates/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MM_Machine Learning/Mott-MacDonald-Energy" beforeDir="false" afterPath="$PROJECT_DIR$/MM_Machine Learning/Mott-MacDonald-Energy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MM_Machine Learning/Mott-MacDonald-Energy/init_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/MM_Machine Learning/Mott-MacDonald-Energy/init_test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MM_Machine Learning/Mott-MacDonald-Energy/test_model1.py" beforeDir="false" afterPath="$PROJECT_DIR$/MM_Machine Learning/Mott-MacDonald-Energy/test_model1.py" afterDir="false" />
@@ -4034,11 +4038,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ML_Fullstack/application.py">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ML_Fullstack/inference.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="73" selection-start-line="15" selection-start-column="73" selection-end-line="15" selection-end-column="73" />
+            <state relative-caret-position="952">
+              <caret line="56" column="124" lean-forward="true" selection-start-line="56" selection-start-column="124" selection-end-line="56" selection-end-column="124" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -4046,11 +4050,26 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="347">
-              <caret line="115" column="6" selection-start-line="115" selection-start-column="6" selection-end-line="115" selection-end-column="6" />
+            <state relative-caret-position="556">
+              <caret line="58" column="10" lean-forward="true" selection-start-line="58" selection-start-column="10" selection-end-line="58" selection-end-column="10" />
+              <folding>
+                <element signature="e#0#10#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/compare.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="476">
+              <caret line="28" selection-start-line="28" selection-end-line="28" />
+              <folding>
+                <element signature="e#0#50#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -4061,10 +4080,22 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ML_Fullstack/inference.py">
+        <entry file="file://$PROJECT_DIR$/__init__.py">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ML_Fullstack/templates/prediction.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="595">
-              <caret line="35" selection-start-line="35" selection-end-line="35" />
+            <state relative-caret-position="-135" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ML_Fullstack/application.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="782">
+              <caret line="46" column="49" selection-start-line="46" selection-start-column="49" selection-end-line="46" selection-end-column="49" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -4073,24 +4104,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ML_Fullstack/requirements.txt">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/requirements.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" selection-start-line="17" selection-end-line="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ML_Fullstack/forms.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+            <state relative-caret-position="204">
+              <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
               </folding>
@@ -4099,15 +4116,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ML_Fullstack/__init__.py">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data_utils/utils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="134" column="13" selection-start-line="134" selection-start-column="4" selection-end-line="134" selection-end-column="13" />
+            <state relative-caret-position="1190">
+              <caret line="70" column="49" selection-start-line="70" selection-start-column="49" selection-end-line="70" selection-end-column="49" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -4116,8 +4128,15 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data_utils/__init__.py">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/data_utils/data_utils.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="595">
+              <caret line="35" column="35" selection-start-line="35" selection-start-column="35" selection-end-line="35" selection-end-column="35" />
+              <folding>
+                <element signature="e#0#19#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -4135,16 +4154,14 @@
     </findStrings>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/ML_Fullstack" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/ML_Training/train.py" />
         <option value="$PROJECT_DIR$/ML_Fullstack/__init__.py" />
-        <option value="$PROJECT_DIR$/data_utils/__init__.py" />
         <option value="$PROJECT_DIR$/ML_Fullstack/README.md" />
-        <option value="$PROJECT_DIR$/ML_Fullstack/templates/index.html" />
         <option value="$PROJECT_DIR$/ML_Fullstack/TestPandas.py" />
         <option value="$PROJECT_DIR$/MM_Machine Learning/Mott-MacDonald-Energy/test_connection.py" />
         <option value="$PROJECT_DIR$/MM_Machine Learning/Mott-MacDonald-Energy/init_test.py" />
@@ -4154,9 +4171,13 @@
         <option value="$PROJECT_DIR$/compare.py" />
         <option value="$PROJECT_DIR$/deploy_app.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/data_utils/utils.py" />
+        <option value="$PROJECT_DIR$/data_utils/__init__.py" />
+        <option value="$PROJECT_DIR$/ML_Fullstack/forms.py" />
+        <option value="$PROJECT_DIR$/ML_Fullstack/templates/index.html" />
         <option value="$PROJECT_DIR$/ML_Fullstack/inference.py" />
         <option value="$PROJECT_DIR$/ML_Fullstack/application.py" />
+        <option value="$PROJECT_DIR$/data_utils/data_utils.py" />
+        <option value="$PROJECT_DIR$/data_utils/utils.py" />
       </list>
     </option>
   </component>
@@ -4188,6 +4209,12 @@
               <item name="CSC494" type="b2602c69:ProjectViewProjectNode" />
               <item name="CSC494" type="462c0819:PsiDirectoryNode" />
               <item name="ML_Fullstack" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CSC494" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CSC494" type="462c0819:PsiDirectoryNode" />
+              <item name="ML_Fullstack" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -4334,8 +4361,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.deploy_app" />
-        <item itemvalue="Python.application" />
         <item itemvalue="Python.main" />
+        <item itemvalue="Python.application" />
         <item itemvalue="Python.compare" />
         <item itemvalue="Python.TestPandas" />
       </list>
@@ -4356,14 +4383,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24983476" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3286119" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3286119" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -4382,20 +4408,10 @@
     <entry file="file://$PROJECT_DIR$/ML_Fullstack/mm490-64/pip-selfcheck.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/ML_Fullstack/templates/prediction.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/ML_Fullstack/web.config">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/ML_Fullstack/TestPandas.py" />
-    <entry file="file://$PROJECT_DIR$/ML_Fullstack/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1547">
-          <caret line="91" column="40" selection-start-line="91" selection-start-column="40" selection-end-line="91" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MM_Machine Learning/Mott-MacDonald-Energy/test_connection.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="488">
@@ -4465,25 +4481,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/compare.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="28" selection-start-line="28" selection-end-line="28" />
-          <folding>
-            <element signature="e#0#50#0" expanded="true" />
-          </folding>
+    <entry file="file://$PROJECT_DIR$/REDAME.MD">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="748">
-          <caret line="46" column="25" selection-start-line="46" selection-start-column="25" selection-end-line="46" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="1955">
+          <caret line="115" column="6" selection-start-line="115" selection-start-column="6" selection-end-line="115" selection-end-column="6" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ML_Fullstack/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ML_Fullstack/templates/downloads.html">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/ML_Fullstack/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
@@ -4495,31 +4512,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/REDAME.MD">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/__init__.py">
+    <entry file="file://$PROJECT_DIR$/ML_Fullstack/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/data_utils/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ML_Fullstack/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ML_Fullstack/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/requirements.txt">
@@ -4529,45 +4525,90 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ML_Fullstack/requirements.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/deploy_app.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/ML_Fullstack/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="347">
-          <caret line="115" column="6" selection-start-line="115" selection-start-column="6" selection-end-line="115" selection-end-column="6" />
+        <state relative-caret-position="378">
+          <caret line="68" column="50" selection-start-line="68" selection-start-column="50" selection-end-line="68" selection-end-column="50" />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ML_Fullstack/templates/prediction.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-135" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/data_utils/utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="134" column="13" selection-start-line="134" selection-start-column="4" selection-end-line="134" selection-end-column="13" />
+        <state relative-caret-position="1190">
+          <caret line="70" column="49" selection-start-line="70" selection-start-column="49" selection-end-line="70" selection-end-column="49" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ML_Fullstack/inference.py">
+    <entry file="file://$PROJECT_DIR$/data_utils/data_utils.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="595">
-          <caret line="35" selection-start-line="35" selection-end-line="35" />
+          <caret line="35" column="35" selection-start-line="35" selection-start-column="35" selection-end-line="35" selection-end-column="35" />
           <folding>
-            <element signature="e#0#9#0" expanded="true" />
+            <element signature="e#0#19#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ML_Fullstack/application.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="73" selection-start-line="15" selection-start-column="73" selection-end-line="15" selection-end-column="73" />
+        <state relative-caret-position="782">
+          <caret line="46" column="49" selection-start-line="46" selection-start-column="49" selection-end-line="46" selection-end-column="49" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ML_Fullstack/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ML_Fullstack/inference.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="952">
+          <caret line="56" column="124" lean-forward="true" selection-start-line="56" selection-start-column="124" selection-end-line="56" selection-end-column="124" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/compare.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deploy_app.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="556">
+          <caret line="58" column="10" lean-forward="true" selection-start-line="58" selection-start-column="10" selection-end-line="58" selection-end-column="10" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
           </folding>
         </state>
       </provider>

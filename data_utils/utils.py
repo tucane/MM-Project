@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 import pyodbc
 import datetime
+from data_utils.data_utils import complete_data
 
 driver_names = [x for x in pyodbc.drivers() if x.endswith(' for SQL Server')]
 if not driver_names:
@@ -69,9 +70,6 @@ def load_data_from_db(table='dbo.building_data'):
 
     return attributes_df.values, labels_df.values
 
-def getRVal():
-    return 100
-
 def add_to_database(data_file):
     query = '''
             INSERT INTO dbo.building_data
@@ -119,38 +117,6 @@ def add_to_database(data_file):
     cursor.executemany(query, vals)
     cnxn.commit()
 
-def complete_data(data):
-    complete_indices = [1, 5, 6, 7, 8, 10, 11, 12]
-    for index in complete_indices:
-        #complete missing building size
-        #data[data.columns[index]].fillna(data[data.columns[index]].mean(), inplace=True)
-        fill_empty_data(data[data.columns[index]])
-
-#framework method for filling in the data
-def fill_empty_data(df):
-    df.fillna(df.mean(), inplace=True)
-
-    #or implement your own
-
-def getRValue():
-    return 100
-
-    #TODO fill in formula
-
-#framework for checking validity of the input data
-def validateData():
-    pass
-    #fill in detail here
-def generate_table(data, form):
-    #create header
-    excluded = ['estimate', 'input_file', 'csrf_token']
-    headers = [f.name for f in form if f.id not in excluded]
-    headers.extend(['heating', 'cooling'])
-
-    results = [f.data for f in form if f.id not in excluded]
-    results.extend(data[0])
-
-    return [headers, results]
 
 
 
