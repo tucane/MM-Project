@@ -7,7 +7,7 @@ from sklearn.externals import joblib
 from sklearn.ensemble import RandomForestRegressor
 import numpy as np
 import pandas as pd
-from utils import fill_empty_data, getRValue
+from data_utils.data_utils import fill_empty_data, getRValue, get_between_dates
 
 class Model:
 
@@ -38,7 +38,8 @@ class Model:
 
 def form_to_data(form):
     building_volume = form['building_volume'].data
-    date = form["date"].data
+    from_date = form["from_date"].data
+    to_date = form['to_date'].data
     building_type = form["building_type"].data
     set_temp = form["set_temp"].data
     rad_norm = form["rad_norm"].data
@@ -49,7 +50,13 @@ def form_to_data(form):
 
     #use date.timetuple().tm_yday if combine both month and day to a single number
     #TODO: get the R_VAL dependency correct
-    result = np.array([[building_volume, date.month, date.day, 0, getRValue(), set_temp, rad_norm, rad_hor, out_temp, humidity]])
+
+    result = []
+    days = get_between_dates(from_date, to_date)
+    for day in days:
+        result.append([building_volume, day.month, day.day, 0, getRValue(), set_temp, rad_norm, rad_hor, out_temp, humidity])
+
+    result = np.array(result)
 
     return result
 

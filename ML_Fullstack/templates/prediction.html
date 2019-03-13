@@ -7,22 +7,24 @@
     <title>Prediction</title>
 </head>
 <body>
-<h2 align="center">Input Prediction</h2>
-<table class="table">
-    <thead>
-        <tr>
-            {%- for column in value[0] %}
-                <th>{{ column }}</th>
-            {%- endfor %}
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-           {%- for v in value[1] %}
-                <td>{{ v }}</td>
-            {%- endfor %}
-        </tr>
-    </tbody>
-</table>
+    <h2 align="center">Input Prediction</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                {%- for column in value[0] %}
+                    <th>{{ column }}</th>
+                {%- endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+               {%- for v in value[1] %}
+                    <td>{{ v }}</td>
+                {%- endfor %}
+            </tr>
+        </tbody>
+    </table>
+    <img src="data:image/png;base64, {{ plot1 }}" alt="Heating Trend">
+    <img src="data:image/png;base64, {{ plot2 }}" alt="Cooling Trend">
 </body>
 </html>

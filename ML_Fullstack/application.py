@@ -8,7 +8,7 @@ from .forms import BuildingForm
 from .inference import Model, file_to_data, form_to_data
 import numpy as np
 import pandas as pd
-from utils import generate_table
+from data_utils.data_utils import generate_table, plot_daily
 
 app = Flask(__name__)
 app.secret_key = 'development key'
@@ -44,9 +44,18 @@ def prediction():
         #data from form
         elif form.validate():
             building_data = form_to_data(form)
-            result = model.predict(building_data).round(decimals=2)
+            result = model.predict(building_data)
+
+            #for plotting
+            days = ["{}/{}".format(d[1], d[2]) for d in building_data]
+            heating_data = result[:, 0]
+            cooling_data = result[:, 1]
+
+            heating_plt, cooling_plt = plot_daily(days, heating_data, cooling_data)
+
             display = generate_table(result, form)
-            return render_template('prediction.html', value=display)
+
+            return render_template('prediction.html', value=display, plot1=heating_plt, plot2=cooling_plt)
 
         #invalid
         else:

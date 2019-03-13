@@ -4,7 +4,8 @@ from wtforms import DateField, SelectField, DecimalField, IntegerField, SubmitFi
 class BuildingForm(FlaskForm):
     building_name = StringField('building_name')
     building_volume = DecimalField('building_volume')
-    date = DateField('date')
+    from_date = DateField('from_date')
+    to_date = DateField('to_date')
     building_type = SelectField('building_type', choices=[("Glass", "Glass"),
                                                           ("Steel", "Steel"),
                                                           ("Concrete", "Concrete"),

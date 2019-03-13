@@ -11,6 +11,11 @@
         $('[data-toggle="tooltip"]').tooltip();
         });
     </script>
+    <script>
+        $(function () {
+        $('[data-toggle="popover"]').popover()
+        })
+    </script>
     <title>Index</title>
 </head>
 <body>
@@ -30,25 +35,48 @@
         {{ form.hidden_tag() }}
         <div class='row bot-buf'>
             <div class='col-md-3' id="building-name-form">
-                <label for="building_name" data-toggle="tooltip" title="Name of the building" class="input-label">Building Name:</label>
+                <label for="building_name" class="input-label">Building Name:</label>
+                    <a class="btn btn-info btn-sm" data-toggle="popover" data-placement="top" title="name of the building">
+                      <span class="glyphicon glyphicon-info-sign"></span> Info
+                    </a>
                 <input type="text" name="building_name" id="building_name" class="form-control">
             </div>
         </div>
         <div class="row bot-buf">
             <div class="col-md-3" id="building-volume-form">
-                <label for="building_volume" data-toggle="tooltip" title="Total volume of the building" class="input-label">Building Volume:</label>
+                <label for="building_volume" class="input-label">Building Volume:</label>
+                    <a class="btn btn-info btn-sm" data-toggle="popover" data-placement="top" title="Volume of the building in cubic meter. Calculated with length x width x height">
+                      <span class="glyphicon glyphicon-info-sign"></span> Info
+                    </a>
                 <input type="number" value="700" step="0.1" name="building_volume" id="building_volume" class="form-control">
             </div>
         </div>
         <div class='row bot-buf'>
-            <div class='col-md-3' id="date-form">
-                <label for="date" data-toggle="tooltip" title="Date of the input">Input Date:</label>
-                <input type="date" name="date" id="date" class="form-control">
+            <div class='col-md-3' id="from-date-form">
+                <label for="from_date">From Date:</label>
+                    <a class="btn btn-info btn-sm" data-toggle="popover" data-placement="top" title="Starting date">
+                      <span class="glyphicon glyphicon-info-sign"></span> Info
+                    </a>
+                <input type="date" name="from_date" id="from_date" class="form-control">
             </div>
         </div>
+        <div class='row bot-buf'>
+            <div class='col-md-3' id="to-date-form">
+                <label for="to_date">To Date:</label>
+                    <a class="btn btn-info btn-sm" data-toggle="popover" data-placement="top" title="Ending date">
+                      <span class="glyphicon glyphicon-info-sign"></span> Info
+                    </a>
+                <input class="form-control" id="to_date" name="to_date" type="date">
+            </div>
+        </div>
+
+
         <div class="row bot-buf">
             <div class="col-md-3" id="building-type-form">
-                <label for="bt" data-toggle="tooltip" title="Building material">Building Type:</label>
+                <label for="bt">Building Type:</label>
+                    <a class="btn btn-info btn-sm" data-toggle="popover" data-placement="top" title="Building construction material">
+                      <span class="glyphicon glyphicon-info-sign"></span> Info
+                    </a>
                 <select name="building_type" id="bt" class="form-control">
                     <option value="Glass">Glass</option>
                     <option value="Steel">Steel</option>
@@ -60,7 +88,10 @@
 
         <div class="row bot-buf">
             <div class="col-md-3" id="set-temp-form">
-                <label for="st" data-toggle="tooltip" title="Inside temperature setting">Setpoint Temperature(C):</label>
+                <label for="st">Setpoint Temperature(C):</label>
+                    <a class="btn btn-info btn-sm" data-toggle="popover" data-placement="top" title="Inside temperature setting">
+                      <span class="glyphicon glyphicon-info-sign"></span> Info
+                    </a>
                 <input type="number" value="20" step="0.1" name="set_temp" id="st" class="form-control">
             </div>
         </div>
@@ -81,20 +112,29 @@
 
         <div class='row bot-buf'>
             <div class='col-md-3' id="location-form">
-                <label for="location" data-toggle="tooltip" title="Location of the building(city)">Building Location:</label>
+                <label for="location">Building Location:</label>
+                    <a class="btn btn-info btn-sm" data-toggle="popover" data-placement="top" title="Location of the building(city)">
+                      <span class="glyphicon glyphicon-info-sign"></span> Info
+                    </a>
                 <input type="text" name="location" id="location" class="form-control">
             </div>
         </div>
 
         <div class="row bot-buf">
             <div class="col-md-3" id="out-temp-form">
-                <label for="ot" data-toggle="tooltip" title="Outside temperature">Outside Temperature(C)</label>
+                <label for="ot">Outside Temperature(C)</label>
+                    <a class="btn btn-info btn-sm" data-toggle="popover" data-placement="top" title="Outside temperature">
+                      <span class="glyphicon glyphicon-info-sign"></span> Info
+                    </a>
                 <input type="number" value="20" step="0.1" name="out_temp" id="ot" class="form-control">
             </div>
         </div>
         <div class="row bot-buf">
             <div class="col-md-3" id="humidity-form">
-                <label for="ot" data-toggle="tooltip" title="Relative humidity">Humidity</label>
+                <label for="ot">Humidity:</label>
+                    <a class="btn btn-info btn-sm" data-toggle="popover" data-placement="top" title="Relative humidity">
+                      <span class="glyphicon glyphicon-info-sign"></span> Info
+                    </a>
                 <input type="number" step="0.1" name="humidity" id="humidity" class="form-control">
             </div>
         </div>
