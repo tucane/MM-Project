@@ -46,8 +46,13 @@ def prediction():
             building_data = form_to_data(form)
             result = model.predict(building_data)
 
-            #for plotting
-            days = ["{}/{}".format(d[1], d[2]) for d in building_data]
+            num_days = result.shape[0] // 24
+            #sum up the hours
+            result = np.sum(result.reshape(24, num_days, 2), axis=0)
+
+
+            #for plottint
+            days = ["{}/{}".format(d[1], d[2]) for d in building_data[::24]]    #take a data per 24 datapoints to represent day
             heating_data = result[:, 0]
             cooling_data = result[:, 1]
 

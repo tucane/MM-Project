@@ -44,8 +44,9 @@ def generate_table(data, form):
 def plot_daily(days, heating, cooling):
 
     heating_plot_url = plot_day_to_energy(days, heating, "Heating Consumption Trend")
-
+    plt.clf()
     cooling_plot_url = plot_day_to_energy(days, cooling, "Cooling Consumption Trend")
+    plt.clf()
 
     return (heating_plot_url, cooling_plot_url)
 

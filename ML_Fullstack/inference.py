@@ -54,7 +54,8 @@ def form_to_data(form):
     result = []
     days = get_between_dates(from_date, to_date)
     for day in days:
-        result.append([building_volume, day.month, day.day, 0, getRValue(), set_temp, rad_norm, rad_hor, out_temp, humidity])
+        for hour in range(24):
+            result.append([building_volume, day.month, day.day, hour, getRValue(), set_temp, rad_norm, rad_hor, out_temp, humidity])
 
     result = np.array(result)
 
