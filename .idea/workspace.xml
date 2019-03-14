@@ -4029,7 +4029,6 @@
       <change beforePath="$PROJECT_DIR$/MM_Machine Learning/Mott-MacDonald-Energy/test_model1.py" beforeDir="false" afterPath="$PROJECT_DIR$/MM_Machine Learning/Mott-MacDonald-Energy/test_model1.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MM_Machine Learning/Mott-MacDonald-Energy/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/MM_Machine Learning/Mott-MacDonald-Energy/utils.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/deploy_app.py" beforeDir="false" afterPath="$PROJECT_DIR$/deploy_app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/startup.txt" beforeDir="false" afterPath="$PROJECT_DIR$/startup.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -4051,11 +4050,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/deploy_app.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="34">
-              <caret line="2" column="9" lean-forward="true" selection-start-line="2" selection-start-column="9" selection-end-line="2" selection-end-column="9" />
+              <caret line="2" column="2" selection-start-line="2" selection-start-column="2" selection-end-line="2" selection-end-column="2" />
             </state>
           </provider>
         </entry>
@@ -4103,7 +4102,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/startup.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state>
@@ -4188,8 +4187,8 @@
         <option value="$PROJECT_DIR$/ML_Fullstack/inference.py" />
         <option value="$PROJECT_DIR$/ML_Fullstack/__init__.py" />
         <option value="$PROJECT_DIR$/ML_Fullstack/application.py" />
-        <option value="$PROJECT_DIR$/deploy_app.py" />
         <option value="$PROJECT_DIR$/startup.txt" />
+        <option value="$PROJECT_DIR$/deploy_app.py" />
       </list>
     </option>
   </component>
@@ -4632,17 +4631,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/deploy_app.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="9" lean-forward="true" selection-start-line="2" selection-start-column="9" selection-end-line="2" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/startup.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="52" selection-start-column="52" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deploy_app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="2" selection-start-line="2" selection-start-column="2" selection-end-line="2" selection-end-column="2" />
         </state>
       </provider>
     </entry>
