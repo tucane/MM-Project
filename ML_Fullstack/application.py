@@ -3,20 +3,16 @@ import sys
 module_dir = os.path.dirname(__file__)
 sys.path.append(os.path.join(module_dir, '../data_utils/'))
 
-from flask import Flask, render_template, request, make_response, redirect, url_for, session, flash
+from flask import render_template, request, make_response, redirect, url_for, session, flash
 from .forms import BuildingForm
 from .inference import Model, file_to_data, form_to_data
 import numpy as np
 import pandas as pd
 from data_utils.data_utils import generate_table, plot_daily
+from . import app
 
-app = Flask(__name__)
-app.secret_key = 'development key'
 
 model = Model(os.path.join(module_dir, 'weights/default_weights.joblib'))
-
-def run_app():
-    app.run()
 
 @app.route('/')
 def index():
