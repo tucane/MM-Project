@@ -32,10 +32,6 @@ def prediction():
             values = model.predict(building_data).round(decimals=2)
             return generate_outfile(values, df)
 
-            #No need to do this on another page?
-            #session['value'] = value.round(decimals=2).tolist()
-            #return render_template('downloads.html')
-
 
         #data from form
         elif form.validate():

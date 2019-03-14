@@ -18,8 +18,10 @@ def fill_empty_data(df):
 
     #or implement your own
 
-def getRValue():
-    return 100
+def getRValue(building_type):
+    type_to_rVal = {"Glass": 10, "Steel": 50, "Concrete": 100, "Wood": 150}    #filler
+
+    return type_to_rVal[building_type]
 
     #TODO fill in formula
 
