@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import pyodbc
 import datetime
-from data_utils.data_utils import complete_data
+from data_utils.data_utils import complete_data, getRValue
 
 driver_names = [x for x in pyodbc.drivers() if x.endswith(' for SQL Server')]
 if not driver_names:
@@ -103,16 +103,16 @@ def add_to_database(data_file):
 
     vals = [(data[data.columns[0]][i],
             float(data[data.columns[1]][i]),
-            datetime.datetime(1970, data[data.columns[2]][i], data[data.columns[3]][i], data[data.columns[4]][i], 0, 0),
-            getRVal(),
-            data[data.columns[5]][i],
-            float(data[data.columns[6]][i]),
+            datetime.datetime(1970, data[data.columns[3]][i], data[data.columns[4]][i], data[data.columns[5]][i], 0, 0),
+            getRValue(data[data.columns[2][i]]),
+            data[data.columns[6]][i],
             float(data[data.columns[7]][i]),
-            data[data.columns[8]][i],
+            float(data[data.columns[8]][i]),
             data[data.columns[9]][i],
             data[data.columns[10]][i],
             data[data.columns[11]][i],
-            data[data.columns[12]][i]) for i in range(len(data))]
+            data[data.columns[12]][i],
+            data[data.columns[13]][i]) for i in range(len(data))]
 
     cursor.executemany(query, vals)
     cnxn.commit()

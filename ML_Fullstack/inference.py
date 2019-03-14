@@ -55,18 +55,18 @@ def form_to_data(form):
     days = get_between_dates(from_date, to_date)
     for day in days:
         for hour in range(24):
-            result.append([building_volume, day.month, day.day, hour, getRValue(), set_temp, rad_norm, rad_hor, out_temp, humidity])
+            result.append([building_volume, day.month, day.day, hour, getRValue(building_type), set_temp, rad_norm, rad_hor, out_temp, humidity])
 
     result = np.array(result)
 
     return result
 
 def file_to_data(df):
-    #TOFIX:
-    df['RValue'] = df.apply(lambda x: getRValue(), axis=1)
+    #get R value from the building type
+    df['RValue'] = df.apply(lambda x: getRValue(x[df.columns[2]]), axis=1)
 
-    df = df.filter(items=[df.columns[1], df.columns[2], df.columns[3], df.columns[4], df.columns[5], 'RValue', df.columns[6],
-                          df.columns[7], df.columns[8], df.columns[11]])
+    df = df.filter(items=[df.columns[1], df.columns[3], df.columns[4], df.columns[5], df.columns[6], 'RValue', df.columns[7],
+                          df.columns[8], df.columns[9], df.columns[11]])
 
     #fill in the data that are missing
     fill_empty_data(df)
