@@ -49,7 +49,6 @@ def form_to_data(form):
     humidity = form['humidity'].data
 
     #use date.timetuple().tm_yday if combine both month and day to a single number
-    #TODO: get the R_VAL dependency correct
 
     result = []
     days = get_between_dates(from_date, to_date)

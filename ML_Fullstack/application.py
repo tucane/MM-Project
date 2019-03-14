@@ -66,7 +66,6 @@ def file_downloads():
 
 @app.route('/downloads/outputs.csv')
 def get_file():
-    #TODO: better way to pass down the array instead of using session
     value = session.get('value', None)
 
     return generate_outfile(value)
