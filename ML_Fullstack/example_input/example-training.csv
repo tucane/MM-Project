@@ -1,6 +1,6 @@
-Building Name,Building Volume,Month,Day,Hour,SetPoint,SolarIrradiation_Normal,SolarIrradiation_Horizontal,OutsideTemp,Location,Humidity,Heating,Cooling
-A,723.1,1,1,1,22.1,26,3,4,Toronto,22.1,152,120
-B,711.2,1,2,1,18.2,5,3,1,Doronto,12.4,136.2,114
-C,112.3,2,1,23,19.5,942,0,32.4,Dorondo,34.1,112,0
-D,201.4,4,12,12,20.3,0,712,12,ToronDo,21.3,162,
-E,400.5,11,10,15,,24,126,15.5,Orono,15.1,,13.2
+Building Name,Building Volume,Building Type,Month,Day,Hour,SetPoint,SolarIrradiation_Normal,SolarIrradiation_Horizontal,OutsideTemp,Location,Humidity,Heating,Cooling
+A,723.1,Glass,1,1,1,22.1,26,3,4,Toronto,22.1,152,120
+B,711.2,Glass,1,2,1,18.2,5,3,1,Doronto,12.4,136.2,114
+C,112.3,Steel,2,1,23,19.5,942,0,32.4,Dorondo,34.1,112,0
+D,201.4,Concrete,4,12,12,20.3,0,712,12,ToronDo,21.3,162,
+E,400.5,Wood,11,10,15,,24,126,15.5,Orono,15.1,,13.2
