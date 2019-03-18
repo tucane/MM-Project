@@ -1,3 +1,5 @@
 from ML_Fullstack.application import app
 
-#app.run()
+if __name__ == "__main__":
+
+    app.run()

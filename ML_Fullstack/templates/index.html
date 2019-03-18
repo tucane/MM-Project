@@ -44,7 +44,7 @@
         </div>
         <div class="row bot-buf">
             <div class="col-md-3" id="building-volume-form">
-                <label for="building_volume" class="input-label">Building Volume:</label>
+                <label for="building_volume" class="input-label">Building Volume(Cubic meter):</label>
                     <a class="btn btn-info btn-sm" data-toggle="popover" data-placement="top" title="Volume of the building in cubic meter. Calculated with length x width x height">
                       <span class="glyphicon glyphicon-info-sign"></span> Info
                     </a>
@@ -98,14 +98,14 @@
 
         <div class="row bot-buf">
             <div class="col-md-3" id="rad-norm-form">
-                <label for="rn">Solar Irradiation Normal(Unit)</label>
+                <label for="rn">Solar Irradiation Normal(kW/m^2)</label>
                 <input type="number" step="1" name="rad_norm" value="0" id="rn" class="form-control">
             </div>
         </div>
 
         <div class="row bot-buf">
             <div class="col-md-3" id="rad-hor-form">
-                <label for="rh">Solar Irradiation Horizontal(Unit)</label>
+                <label for="rh">Solar Irradiation Horizontal(kW/m^2)</label>
                 <input type="number" step="1" name="rad_hor" value="0" id="rh" class="form-control">
             </div>
         </div>
@@ -131,11 +131,11 @@
         </div>
         <div class="row bot-buf">
             <div class="col-md-3" id="humidity-form">
-                <label for="ot">Humidity:</label>
+                <label for="ot">Relative Humidity(%):</label>
                     <a class="btn btn-info btn-sm" data-toggle="popover" data-placement="top" title="Relative humidity">
                       <span class="glyphicon glyphicon-info-sign"></span> Info
                     </a>
-                <input type="number" step="0.1" name="humidity" id="humidity" class="form-control">
+                <input type="number" step="0.1" name="humidity" id="humidity" class="form-control" min="0" max="100">
             </div>
         </div>
 

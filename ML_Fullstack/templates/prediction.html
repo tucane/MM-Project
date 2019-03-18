@@ -8,6 +8,10 @@
 </head>
 <body>
     <h2 align="center">Input Prediction</h2>
+
+    <img src="data:image/png;base64, {{ plot1 }}" alt="Heating Trend">
+    <img src="data:image/png;base64, {{ plot2 }}" alt="Cooling Trend">
+
     <table class="table">
         <thead>
             <tr>
@@ -17,14 +21,14 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-               {%- for v in value[1] %}
-                    <td>{{ v }}</td>
-                {%- endfor %}
-            </tr>
+            {%- for row in value[1] %}
+                <tr>
+                   {%- for v in row %}
+                        <td>{{ v }}</td>
+                    {%- endfor %}
+                </tr>
+            {%- endfor %}
         </tbody>
     </table>
-    <img src="data:image/png;base64, {{ plot1 }}" alt="Heating Trend">
-    <img src="data:image/png;base64, {{ plot2 }}" alt="Cooling Trend">
 </body>
 </html>

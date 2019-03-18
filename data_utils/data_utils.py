@@ -32,15 +32,20 @@ def validateData():
 
 def generate_table(data, form):
     #create header
-    excluded = ['estimate', 'input_file', 'csrf_token']
+    excluded = ['estimate', 'input_file', 'csrf_token', 'from_date', 'to_date']
     headers = [f.name for f in form if f.id not in excluded]
-    headers.extend(['heating_avg', 'cooling_avg'])
+    headers.extend(['Day', 'Heating(kWh)', 'Cooling(kWh)'])
 
-    results = [f.data for f in form if f.id not in excluded]
+    r = np.array([f.data for f in form if f.id not in excluded])
+    references = np.repeat(r[np.newaxis, :], data.shape[0], axis=0)
 
-    avg_data = np.mean(data, axis=0).round(decimals=2)
-    results.extend(avg_data)
+    days = np.array(get_between_dates(form['from_date'].data, form['to_date'].data))
+    data_with_days = np.hstack((days[:, np.newaxis], data))
 
+    results = np.hstack((references, data_with_days))    #stack the data together
+
+    #avg_data = np.mean(data, axis=0).round(decimals=2)
+    #results.extend(avg_data)
     return [headers, results]
 
 def plot_daily(days, heating, cooling):
@@ -56,7 +61,7 @@ def plot_day_to_energy(days, energy, title):
     img = io.BytesIO()
 
     plt.plot(days, energy)
-    plt.ylabel("Energy Consumption(unit)")
+    plt.ylabel("Energy Consumption(kW)")
     plt.xlabel("Day")
     plt.title(title)
     plt.savefig(img, format='png')
