@@ -48,11 +48,11 @@ def prediction():
             heating_data = result[:, 0]
             cooling_data = result[:, 1]
 
-            heating_plt, cooling_plt = plot_daily(days, heating_data, cooling_data)
+            heating_plt, cooling_plt, heating_cum_plt, cooling_cum_plt = plot_daily(days, heating_data, cooling_data)
 
             display = generate_table(result, form)
 
-            return render_template('prediction.html', value=display, plot1=heating_plt, plot2=cooling_plt)
+            return render_template('prediction.html', value=display, plot1=heating_plt, plot2=cooling_plt, plot3=heating_cum_plt, plot4=cooling_cum_plt)
 
         #invalid
         else:

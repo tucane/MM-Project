@@ -55,13 +55,39 @@ def plot_daily(days, heating, cooling):
     cooling_plot_url = plot_day_to_energy(days, cooling, "Cooling Consumption Trend")
     plt.clf()
 
-    return (heating_plot_url, cooling_plot_url)
+    heating_cum_plot_url = plot_cum_day_energy(days, heating, "Heating Consumption Cumulative Trend")
+    plt.clf()
+
+    cooling_cum_plot_url = plot_cum_day_energy(days, cooling, "Cooling Consumption Cumulative Trend")
+    plt.clf()
+
+    return heating_plot_url, cooling_plot_url, heating_cum_plot_url, cooling_cum_plot_url
 
 def plot_day_to_energy(days, energy, title):
     img = io.BytesIO()
 
     plt.plot(days, energy)
     plt.ylabel("Energy Consumption(kW)")
+    plt.xlabel("Day")
+    plt.title(title)
+    plt.savefig(img, format='png')
+
+    img.seek(0)
+    plot_url = base64.b64encode(img.getvalue()).decode()
+
+    return plot_url
+
+def plot_cum_day_energy(days, energy, title):
+    img = io.BytesIO()
+    cum_energy = [0] * len(days)
+    for i in range(len(days)):
+        if i == 0:
+            cum_energy[i] = energy[i]
+        else:
+            cum_energy[i] = energy[i] + cum_energy[i - 1]
+
+    plt.plot(days, cum_energy)
+    plt.ylabel("Cumulative Energy Consumption(kW)")
     plt.xlabel("Day")
     plt.title(title)
     plt.savefig(img, format='png')
