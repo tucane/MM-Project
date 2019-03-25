@@ -4,7 +4,7 @@ module_dir = os.path.dirname(__file__)
 sys.path.append(os.path.join(module_dir, '../data_utils/'))
 
 from flask import render_template, request, make_response, redirect, url_for, session, flash
-from .forms import BuildingForm
+from .forms import BuildingForm, ComparativeBuildingForm
 from .inference import Model, file_to_data, form_to_data
 import numpy as np
 import pandas as pd
@@ -23,8 +23,12 @@ def index():
 def prediction():
     form = BuildingForm()
     if request.method == 'POST':
-        #data from file
 
+        #if the user opt to use the comparative fields
+        if form['compare'].data:
+            return redirect(url_for('comparative_input'))
+
+        #data from file
         if form['input_file'].data:
             input_file = request.files['input_file']
             df = pd.read_csv(input_file, header=0)
@@ -57,8 +61,26 @@ def prediction():
         #invalid
         else:
             flash('File or input fields must contain valid data')
-            #return render_template('index.html', form=form)
             return redirect(url_for('index'))
+
+@app.route('/compare-fields')
+def comparative_input():
+    form = ComparativeBuildingForm()
+    return render_template('compare.html', form=form)
+
+@app.route('/prediction-comparative', methods = ['POST'])
+def comparative_predict():
+    form = ComparativeBuildingForm()
+
+    if request.method == 'POST':
+
+        #back to the original input
+        if form['original'].data:
+            return redirect(url_for('index'))
+
+        #produce the comparative prediction
+        else:
+            return "hello world"
 
 @app.route('/downloads/')
 def file_downloads():

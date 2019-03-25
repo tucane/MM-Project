@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/style.css?some_var_to_bust_cache=14971329">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
+    <script>
+        $(function () {
+        $('[data-toggle="popover"]').popover()
+        })
+    </script>
+
+    {% macro infoTemplate(name, input_name, exp) -%}
+        <label for={{input_name}} class="input-label">{{name}}:</label>
+        <a class="btn btn-info btn-sm" data-toggle="popover" data-placement="top" title="{{exp}}">
+          <span class="glyphicon glyphicon-info-sign"></span> Info
+        </a>
+    {%- endmacro %}
+
+    {% macro inputTextField(name, input_name, field_id, exp) -%}
+        <div class='row bot-buf'>
+            <div class='col-md-3'>
+                {{ infoTemplate(name, input_name, exp) }}
+                <input type="text" name={{input_name}} id={{field_id}} class="form-control">
+            </div>
+        </div>
+    {%- endmacro %}
+
+    {% macro inputNumberField(name, input_name, field_id, exp, default_val, step, min_val, max_val) -%}
+        <div class='row bot-buf'>
+            <div class='col-md-3'>
+                {{ infoTemplate(name, input_name, exp) }}
+                <input type="number" value={{default_val}} step={{step}} min={{min_val}} max={{max_val}} name={{input_name}} id={{field_id}} class="form-control">
+            </div>
+        </div>
+    {%- endmacro %}
+
+    {% macro inputDateField(name, input_name, field_id, exp) -%}
+        <div class='row bot-buf'>
+            <div class='col-md-3'>
+                {{ infoTemplate(name, input_name, exp) }}
+                <input type="date" name={{input_name}} id={{field_id}} class="form-control">
+            </div>
+        </div>
+    {%- endmacro %}
+
+    {% macro inputBuildingTypeField(name, input_name, field_id, exp) -%}
+        <div class='row bot-buf'>
+            <div class='col-md-3'>
+                {{ infoTemplate(name, input_name, exp) }}
+                <select name={{input_name}} id={{field_id}} class="form-control">
+                    <option value="Glass">Glass</option>
+                    <option value="Steel">Steel</option>
+                    <option value="Concrete">Concrete</option>
+                    <option value="Wood">Wood</option>
+                </select>
+            </div>
+        </div>
+    {%- endmacro %}
+
+    {% macro compareInputNumberField(name, input_name, field_id, exp, default_val, step, min_val, max_val) -%}
+        <div class='row bot-buf'>
+            <div class='col-md-3'>
+                {{ infoTemplate(name, input_name, exp) }}
+                <input type="number" value={{default_val}} step={{step}} min={{min_val}} max={{max_val}} name={{input_name}} id={{field_id}} class="form-control">
+            </div>
+            <div class='col-md-3'>
+                <label for={{input_name + '2' }} class="input-label">Alternative:</label>
+                <input type="number" value={{default_val}} step={{step}} min={{min_val}} max={{max_val}} name={{ input_name + '2' }} id={{field_id + '2'}} class="form-control">
+            </div>
+        </div>
+    {%- endmacro %}
+
+    {% macro compareInputBuildingTypeField(name, input_name, field_id, exp) -%}
+        <div class='row bot-buf'>
+            <div class='col-md-3'>
+                {{ infoTemplate(name, input_name, exp) }}
+                <select name={{input_name}} id={{field_id}} class="form-control">
+                    <option value="Glass">Glass</option>
+                    <option value="Steel">Steel</option>
+                    <option value="Concrete">Concrete</option>
+                    <option value="Wood">Wood</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label for={{input_name + '2' }} class="input-label">Alternative:</label>
+                <select name={{input_name + '2'}} id={{field_id + '2'}} class="form-control">
+                    <option value="Glass">Glass</option>
+                    <option value="Steel">Steel</option>
+                    <option value="Concrete">Concrete</option>
+                    <option value="Wood">Wood</option>
+                </select>
+            </div>
+        </div>
+    {%- endmacro %}
+
+
+
+
+</head>
+
+</html>

@@ -39,6 +39,7 @@ def generate_table(data, form):
     r = np.array([f.data for f in form if f.id not in excluded])
     references = np.repeat(r[np.newaxis, :], data.shape[0], axis=0)
 
+    data = data.round(decimals=2)
     days = np.array(get_between_dates(form['from_date'].data, form['to_date'].data))
     data_with_days = np.hstack((days[:, np.newaxis], data))
 

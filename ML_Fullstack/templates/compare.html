@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Comparative Input</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/style.css?some_var_to_bust_cache=14971329">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
+    <script>
+        $(function () {
+        $('[data-toggle="popover"]').popover()
+        })
+    </script>
+    <title>Index</title>
+    {% from 'macro.html' import inputTextField, inputNumberField, inputDateField, inputBuildingTypeField, compareInputNumberField, compareInputBuildingTypeField %}
+</head>
+<body>
+    <h2 align="center">Comparative Building Input</h2>
+
+    <form action="prediction-comparative" enctype = "multipart/form-data" method="post" id="building-form">
+
+        {{ form.hidden_tag() }}
+
+        {{ inputTextField("Building Name", "building_name", "building_id", "Name of the building") }}
+
+        {{ compareInputNumberField("Building Volume(Cubic meter)", "building_volume", "building_volume", "Volume of the building in cubic meter. Calculated with length x width x height", 700, 0.1, 0, 999999999) }}
+
+        {{ inputDateField("From Date", "from_date", "from_date", "Starting date for the prediction period") }}
+
+        {{ inputDateField("To Date", "to_date", "to_date", "Ending date for the prediction period") }}
+
+        {{ compareInputBuildingTypeField("Building Type", "building_type", "bt", "Building construction material") }}
+
+        {{ compareInputNumberField("Setpoint Temperature(C):", "set_temp", "st", "Inside temperature setting", 20, 0.1, -100, 100) }}
+
+        {{ inputNumberField("Solar Irradiation Normal(kW/m^2)", "rad_norm", "rn", "Solar Irradiation Normal from longitude/latitude", 0, 1, -100000, 100000) }}
+
+        {{ inputNumberField("Solar Irradiation Horizontal(kW/m^2)", "rad_hor", "rh", "Solar Irradiation Horizontal from longitude/latitude", 0, 1, -100000, 100000) }}
+
+        {{ inputTextField("Building Location", "location", "location", "Location of the building(city)") }}
+
+        {{ compareInputNumberField("Outside Temperature(C):", "out_temp", "ot", "Outside temperature", 20, 0.1, -100, 100) }}
+
+        {{ compareInputNumberField("Relative Humidity(%):", "humidity", "humidity", "Relative humidity", 50, 0.1, 0, 100) }}
+
+        <div class="row bot-buf">
+            <div class="col-md-3" id="est-form">
+                <input type="submit" value="Estimate and Compare" name="estimate" id="est" data-toggle="tooltip" title="Estimate energy consumption" class="btn btn-primary btn-lg">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3" id="switch">
+                <input type="submit" value="Switch To Original Input" name="original" id="original" data-toggle="tooltip" title="Compare the trend between two input" class="btn btn-primary btn-lg">
+            </div>
+        </div>
+    </form>
+</body>
+</html>
