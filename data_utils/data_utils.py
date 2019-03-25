@@ -98,6 +98,66 @@ def plot_cum_day_energy(days, energy, title):
 
     return plot_url
 
+def plot_comparative_daily(days, heating, cooling, heating2, cooling2):
+    heating_plot_url = plot_comparative_day_to_energy(days, heating, heating2, "Comparative Heating Consumption Trend")
+    plt.clf()
+    cooling_plot_url = plot_comparative_day_to_energy(days, cooling, cooling2, "Comparative Cooling Consumption Trend")
+    plt.clf()
+
+    heating_cum_plot_url = plot_comparative_cum_day_energy(days, heating, heating2, "Cumulative Comparative Heating Consumption Trend")
+    plt.clf()
+    cooling_cum_plot_url = plot_comparative_cum_day_energy(days, cooling, cooling2, "Cumulative Comparative Cooling Consumption Trend")
+    plt.clf()
+
+    return heating_plot_url, cooling_plot_url, heating_cum_plot_url, cooling_cum_plot_url
+
+def plot_comparative_day_to_energy(days, energy, energy2, title):
+    img = io.BytesIO()
+    plt.plot(days, energy, color='blue', label="Original")
+    plt.plot(days, energy2, color='green', label="Alternative")
+
+    plt.ylabel("Energy Consumption(kW)")
+    plt.xlabel("Day")
+    plt.title(title)
+    plt.legend()
+    plt.savefig(img, format='png')
+
+
+    img.seek(0)
+    plot_url = base64.b64encode(img.getvalue()).decode()
+
+    return plot_url
+
+
+def plot_comparative_cum_day_energy(days, energy, energy2, title):
+    img = io.BytesIO()
+    cum_energy = [0] * len(days)
+    cum_energy2 = [0] * len(days)
+    for i in range(len(days)):
+        if i == 0:
+            cum_energy[i] = energy[i]
+            cum_energy2[i] = energy2[i]
+        else:
+            cum_energy[i] = energy[i] + cum_energy[i - 1]
+            cum_energy2[i] = energy2[i] + cum_energy2[i - 1]
+
+    plt.plot(days, cum_energy, color='blue', label="Original")
+    plt.plot(days, cum_energy2, color='green', label="Alternative")
+
+    plt.ylabel("Energy Consumption(kW)")
+    plt.xlabel("Day")
+    plt.title(title)
+    plt.legend()
+    plt.savefig(img, format='png')
+
+    img.seek(0)
+    plot_url = base64.b64encode(img.getvalue()).decode()
+
+    return plot_url
+
+
+
+
 def get_between_dates(from_date, to_date):
     day_between = (to_date - from_date).days + 1    #inclusive
 

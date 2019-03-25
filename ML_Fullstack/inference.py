@@ -60,6 +60,41 @@ def form_to_data(form):
 
     return result
 
+def comparative_form_to_data(form):
+    building_volume = form['building_volume'].data
+    building_volume2 = form['building_volume2'].data
+    from_date = form["from_date"].data
+    to_date = form['to_date'].data
+    building_type = form["building_type"].data
+    building_type2 = form['building_type2'].data
+    set_temp = form["set_temp"].data
+    set_temp2 = form['set_temp2'].data
+
+    rad_norm = form["rad_norm"].data
+    rad_hor = form["rad_hor"].data
+
+    out_temp = form["out_temp"].data
+    location = form['location'].data
+    humidity = form['humidity'].data
+    humidity2 = form['humidity2'].data
+
+    result1 = []
+    result2 = []
+    days = get_between_dates(from_date, to_date)
+
+    for day in days:
+        for hour in range(24):
+            result1.append([building_volume, day.month, day.day, hour, getRValue(building_type), set_temp, rad_norm, rad_hor,
+                            out_temp, humidity])
+
+            result2.append([building_volume2, day.month, day.day, hour, getRValue(building_type2), set_temp2, rad_norm, rad_hor,
+                            out_temp, humidity2])
+
+    result1 = np.array(result1)
+    result2 = np.array(result2)
+
+    return result1, result2
+
 def file_to_data(df):
     #get R value from the building type
     df['RValue'] = df.apply(lambda x: getRValue(x[df.columns[2]]), axis=1)
