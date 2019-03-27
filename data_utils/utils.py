@@ -70,6 +70,11 @@ def load_data_from_db(table='dbo.building_data'):
 
     return attributes_df.values, labels_df.values
 
+def get_hour(hour):
+    if hour == 24:
+        return 0
+    return hour
+
 def add_to_database(data_file):
     query = '''
             INSERT INTO dbo.building_data
@@ -103,16 +108,16 @@ def add_to_database(data_file):
 
     vals = [(data[data.columns[0]][i],
             float(data[data.columns[1]][i]),
-            datetime.datetime(1970, data[data.columns[3]][i], data[data.columns[4]][i], data[data.columns[5]][i], 0, 0),
-            getRValue(data[data.columns[2][i]]),
-            data[data.columns[6]][i],
+            datetime.datetime(1970, int(data[data.columns[3]][i]), int(data[data.columns[4]][i]), get_hour(int(data[data.columns[5]][i])), 0, 0),
+            getRValue(data[data.columns[2]][i]),
+            float(data[data.columns[6]][i]),
             float(data[data.columns[7]][i]),
             float(data[data.columns[8]][i]),
-            data[data.columns[9]][i],
+            float(data[data.columns[9]][i]),
             data[data.columns[10]][i],
-            data[data.columns[11]][i],
-            data[data.columns[12]][i],
-            data[data.columns[13]][i]) for i in range(len(data))]
+            float(data[data.columns[11]][i]),
+            float(data[data.columns[12]][i]),
+            float(data[data.columns[13]][i])) for i in range(len(data))]
 
     cursor.executemany(query, vals)
     cnxn.commit()

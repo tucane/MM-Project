@@ -3,6 +3,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.utils import shuffle
 import pandas as pd
 
+
 def main():
     good_data = pd.read_csv('ML_Fullstack/example_input/Fake_Data_Winter.csv', header=0).fillna(0).values
     good_train = good_data[:, :10]

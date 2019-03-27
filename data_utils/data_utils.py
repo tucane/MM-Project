@@ -6,10 +6,10 @@ import io
 import base64
 
 def complete_data(data):
-    complete_indices = [1, 5, 6, 7, 8, 10, 11, 12]
+    complete_indices = [1, 6, 9, 11, 12, 13]
+
     for index in complete_indices:
         #complete missing building size
-        #data[data.columns[index]].fillna(data[data.columns[index]].mean(), inplace=True)
         fill_empty_data(data[data.columns[index]])
 
 #framework method for filling in the data
