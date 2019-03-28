@@ -32,7 +32,7 @@ def validateData():
 
 def generate_table(data, form):
     #create header
-    excluded = ['estimate', 'input_file', 'csrf_token', 'from_date', 'to_date']
+    excluded = ['estimate', 'input_file', 'csrf_token', 'from_date', 'to_date', 'compare']
     headers = [f.name for f in form if f.id not in excluded]
     headers.extend(['Day', 'Heating(kWh)', 'Cooling(kWh)'])
 
