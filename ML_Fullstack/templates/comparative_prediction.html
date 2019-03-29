@@ -11,5 +11,11 @@
     <img src="data:image/png;base64, {{ plot2 }}" alt="Cooling Trend">
     <img src="data:image/png;base64, {{ plot3 }}" alt="Heating Cumulative Trend">
     <img src="data:image/png;base64, {{ plot4 }}" alt="Cooling Cumulative Trend">
+
+    <form method="post" action="download_data/" id="form">
+        <div align="center">
+            <button type="submit">Export to csv</button>
+        </div>
+    </form>
 </body>
 </html>

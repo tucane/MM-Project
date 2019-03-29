@@ -8,7 +8,7 @@ from .forms import BuildingForm, ComparativeBuildingForm
 from .inference import Model, file_to_data, form_to_data, comparative_form_to_data
 import numpy as np
 import pandas as pd
-from data_utils.data_utils import generate_table, plot_daily, plot_comparative_daily
+from data_utils.data_utils import generate_table, plot_daily, plot_comparative_daily, comparative_data_to_csv
 from . import app
 
 
@@ -55,7 +55,8 @@ def prediction():
             heating_plt, cooling_plt, heating_cum_plt, cooling_cum_plt = plot_daily(days, heating_data, cooling_data)
 
             display = generate_table(result, form)
-
+            session['header'] = csv_line(display[0])
+            session['data'] = "\n".join(csv_line(line) for line in display[1])
             return render_template('prediction.html', value=display, plot1=heating_plt, plot2=cooling_plt, plot3=heating_cum_plt, plot4=cooling_cum_plt)
 
         #invalid
@@ -92,7 +93,6 @@ def comparative_predict():
                 # sum up the hours
                 result1 = np.sum(result1.reshape(24, num_days, 2), axis=0)
                 result2 = np.sum(result2.reshape(24, num_days, 2), axis=0)
-
                 #plotting
                 days = ["{}/{}".format(d[1], d[2]) for d in building1_data[::24]]  # take a data per 24 datapoints to represent day
 
@@ -103,6 +103,12 @@ def comparative_predict():
                 cooling_data2 = result2[:, 1]
 
                 heating_plt, cooling_plt, heating_cum_plt, cooling_cum_plt = plot_comparative_daily(days, heating_data1, cooling_data1, heating_data2, cooling_data2)
+
+                #save the data to file to be donwloaded later
+                header, results = comparative_data_to_csv(result1, result2, form)
+
+                session['header'] = csv_line(header)
+                session['data'] = "\n".join(csv_line(line) for line in results)
 
                 return render_template('comparative_prediction.html', plot1=heating_plt, plot2=cooling_plt, plot3=heating_cum_plt, plot4=cooling_cum_plt)
 
@@ -116,12 +122,23 @@ def comparative_predict():
 def file_downloads():
     return render_template('downloads.html')
 
-@app.route('/downloads/outputs.csv')
-def get_file():
-    value = session.get('value', None)
+@app.route('/download_data/',  methods = ['POST'])
+def download_data():
+    if request.method == "POST":
+        header = session.get('header')
+        val = session.get('data')
+        session.clear()     #no longer needed
 
-    return generate_outfile(value)
+        csv = header + "\n" + val
+        response = make_response(csv)
+        cd = 'attachment; filename=export.csv'
+        response.headers['Content-Disposition'] = cd
+        response.mimetype = 'text/csv'
 
+        return response
+
+def csv_line(line):
+    return ",".join([str(d) for d in line])
 
 def generate_outfile(result, df):
     #append the original file as reference

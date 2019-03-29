@@ -45,9 +45,26 @@ def generate_table(data, form):
 
     results = np.hstack((references, data_with_days))    #stack the data together
 
-    #avg_data = np.mean(data, axis=0).round(decimals=2)
-    #results.extend(avg_data)
     return [headers, results]
+
+def comparative_data_to_csv(data1, data2, form):
+    excluded = ['estimate', 'input_file', 'csrf_token', 'from_date', 'to_date', 'original']
+    headers = [f.name for f in form if f.id not in excluded]
+    headers.extend(['Day', 'Original/Alternative', 'Heating(kWh)', 'Cooling(kWh)'])
+
+    r = [f.data for f in form if f.id not in excluded]
+    days = get_between_dates(form['from_date'].data, form['to_date'].data)
+
+    data1 = data1.round(decimals=2)
+    data2 = data2.round(decimals=2)
+
+    results = [[] for i in range(len(days) * 2)]
+    for i in range(len(days)):
+        results[i * 2] = r + [days[i], "original"] + data1[i, :].tolist()
+        results[i * 2 + 1] = r + [days[i], "alternative"] + data2[i, :].tolist()
+    return headers, results
+
+
 
 def plot_daily(days, heating, cooling):
 
@@ -154,8 +171,6 @@ def plot_comparative_cum_day_energy(days, energy, energy2, title):
     plot_url = base64.b64encode(img.getvalue()).decode()
 
     return plot_url
-
-
 
 
 def get_between_dates(from_date, to_date):
