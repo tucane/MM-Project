@@ -9,7 +9,6 @@ Author: Bill Gan (billgan96@gmail.com)
 * Elton(Siqi) Zhang
 * Sijia Ding
 
-
 Project Overview:
 --------
 The goal for this project is to provide a machine learning solution for building managers to monitor their building performance and 
@@ -31,7 +30,7 @@ Section Breakdown:
 --------
 ### ML Model Training
 The backend ML model is trained using RandomForestRegressor in scikit-learn. 
-#### The model has following input attributes:
+##### The model has following input attributes:
 * building volume
 * input month
 * input day
@@ -42,27 +41,75 @@ The backend ML model is trained using RandomForestRegressor in scikit-learn.
 * outside temperature
 * relative humidity
 
-#### The model output are:
+##### The model output are:
 * heating load
 * cooling load
 
 ### Website with the ML model in the backend for the building manager to use
 This is the main bulk of the project, where it allows the building managers to upload their own building data to make prediction and visualize the energy consumption trend, and an option to download the prediction trend as a csv file.
 The building data that the building manager must provide are:
-* building name
-* building volume
-* prediction from date
+* building name                 
+* building volume               
+* prediction from date          
 * prediction to date
 * building cladding type
 * setpoint temperature
 * solar irradiations
-* building location
+* building location          
 * outside temperature
 * relative humidity
 <br />
-Where the user can manully input the fields in the website, or upload the input as a csv file. Csv file input follows a slightly different format, please see MM_Fullstack/example_input/example.csv
+Most of which are variables used in the ML model, with a few bookkeeping variables such as building name. <br />
+Note: the ML prediction is hourly, but the prediction that the building managers see is aggregated daily sum.
+The user can manully input the fields in the website, or upload the input as a csv file. Csv file input follows a slightly different format, see MM_Fullstack/example_input/example.csv
 <br />
 The website will consequently make prediction based on the input, and plot the results visually.
+<br />
+The users can also compare how the energy consumption differs by changing some of the input attributes. The user can click the **Switch To Comparative Input** button to use the comparing feature, where the following attributes take both an original and alternative value:
+* building volume
+* building cladding type
+* setpoint temperature
+* relative humidity
+Where the prediction will plot graphs that compare the original and alternative energy comsumption instead.
+
+##### Usage
+Simply execute deploy_app.py with no arguments to run the flask web app locally.
+
+### Script for the developers to maintain the database and train new models
+This is a helper script for the developers who are responsible for this project to 
+* maintain the database 
+* re-train the models.
+We don't currently have much data in our hand, as building data may be sensitive information, and require a lot of effort to obtain them. The way the project is set up so that the developers can always add more data to the data base and re-train the backend model.
+
+##### Database setup
+The database will need to be re-setup to continue the project, as I am using the database in my personal Azure account. The database only has 1 table named building_data (since that's all it needs for now), with the following columns:
+* buildingName(varchar)
+* buildingVolume(real)
+* inDatetime(datetime)
+* RValue(real)
+* setPoint(real)
+* irradiationNorm(real)
+* irradiationHor(real)
+* outsideTemp(real)
+* location(varchar)
+* humidity(real)
+* heating(real)
+* cooling(real)
+
+and update data_utils.utils.py for the new database connection.
+
+##### Adding new data to database
+Given a csv training data file (see MM_Fullstack/example_input/example-training.csv). The developer can exeucte <br />
+"main.py add MM_Fullstack/example_input/example-training.csv" to add the new data to database. <br />
+
+##### Training new model for the website
+The developer can re-train the model using all the data in the database by executing <br />
+"main.py train MM_Fullstack/weights/<new_model_filename>"
+
+### Hosting the website on Azure
+Similar to the database, this part needs to be re-setup since I am currently using my person Azure account to host the website.
+Follow this guide https://code.visualstudio.com/docs/python/tutorial-deploy-app-service-on-linux 
+The Azure startup file has already been created (./startup.txt).
 
 Project Code Details
 ========
