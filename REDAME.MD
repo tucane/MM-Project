@@ -22,4 +22,42 @@ building managers to upload and predict their building energy data. <br />
 Due to limited resource, we were not able to make an energy optimization 
 solution using deep reinforcement learning. (for example, https://arxiv.org/pdf/1903.05196.pdf)
 
-The project can be broken into three major parts
+The project can be broken into three major parts:
+1. Website with the ML model in the backend for the building manager to use
+2. Script for the developers to maintain the database and train new models
+3. Hosting the website on Azure
+
+Section Breakdown:
+--------
+
+### Website with the ML model in the backend for the building manager to use
+This is the main part of the project, where it allows the user to input
+
+
+Project Code Details
+========
+
+Project Folder Structure
+--------
+    .
+    ├── data_utils              # utils module
+    │   ├── \__init__.py
+    │   ├── data_utils.py       # helper functions that help to clean the data or generate the graphs and tables for users to see
+    │   └── utils.py            # helper functions that help to load data from csv/database and upload data to database
+    
+    ├── ML_Fullstack            # module that contains the flask web app
+    |   ├── .ideas              
+    |   ├── example_input       # folder that contains examples training/inferencing csv data files
+        │   ├── example.csv                 # format of inferencing data for building managers to upload
+        │   ├── example-training.csv        # format of training data for developers to upload
+        │   ├── training_data_2.csv       
+        │   └── training_Data_winter.csv
+    |   ├── static              
+        |   └── style.css       # we have not spent a lot of time to make the website aesthetically pleasing.
+    |   ├── templates           
+        |   ├── comparative_prediction.html    # showing the prediction result with the comparative input fields
+        |   ├── compare.html                   # comparative input fields
+        |   ├── index.html                     # default page. Regular input fields
+        |   ├── macro.html                     # macro the input page template
+        |   └── prediction.html                # showing the prediction result with the regular input fields
+        
