@@ -29,10 +29,40 @@ The project can be broken into three major parts:
 
 Section Breakdown:
 --------
+### ML Model Training
+The backend ML model is trained using RandomForestRegressor in scikit-learn. 
+#### The model has following input attributes:
+* building volume
+* input month
+* input day
+* input hour
+* R value
+* setpoint temperature
+* solar irradiation normal and horizontal
+* outside temperature
+* relative humidity
+
+#### The model output are:
+* heating load
+* cooling load
 
 ### Website with the ML model in the backend for the building manager to use
-This is the main part of the project, where it allows the user to input
-
+This is the main bulk of the project, where it allows the building managers to upload their own building data to make prediction and visualize the energy consumption trend, and an option to download the prediction trend as a csv file.
+The building data that the building manager must provide are:
+* building name
+* building volume
+* prediction from date
+* prediction to date
+* building cladding type
+* setpoint temperature
+* solar irradiations
+* building location
+* outside temperature
+* relative humidity
+<br />
+Where the user can manully input the fields in the website, or upload the input as a csv file. Csv file input follows a slightly different format, please see MM_Fullstack/example_input/example.csv
+<br />
+The website will consequently make prediction based on the input, and plot the results visually.
 
 Project Code Details
 ========
