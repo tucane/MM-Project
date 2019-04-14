@@ -146,7 +146,7 @@ The database will need to be re-setup to continue the project, as I am using the
 * heating(real)
 * cooling(real)
 
-and update **data_utils.utils.py** for the new database connection.
+and update **data_utils.utils.py** for the new database connection. I created my database in the Azure portal and modified the configuration in MicroSoft SQL Server Managment Studio.
 
 ##### Adding new data to database
 Given a csv training data file (see MM_Fullstack/example_input/example-training.csv). The developer can exeucte <br />
@@ -158,9 +158,18 @@ The developer can re-train the model using all the data in the database by execu
 
 ### Hosting the website on Azure
 Similar to the database, this part needs to be re-setup since I am currently using my person Azure account to host the website.
-Follow this guide https://code.visualstudio.com/docs/python/tutorial-deploy-app-service-on-linux 
+Follow this guide https://code.visualstudio.com/docs/python/tutorial-deploy-app-service-on-linux <br />
 The Azure startup file has already been created (./startup.txt).
 
-## FAQ/Problems That I've Encountered
+Future Improvement/TODO
+--------
 
+
+FAQ/Problems That I've Encountered
+--------
+Q: Database connection error? <br />
+A: Make sure that your IP addressed is added in whitelisted in the Azure Firewall Settings. Double check that your computer has a ODBC driver for SQL.
+<br /> <br />
+Q: Pandas error when parsing the csv files? <br />
+A: Make sure that the order of the columns follows the example format exactly. Delete any empty rows at the bottom of the csv files. 
 
