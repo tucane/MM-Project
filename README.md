@@ -22,7 +22,7 @@ Due to limited time and resources, we were not able to make an energy optimizati
 solution using deep reinforcement learning. (for example, https://arxiv.org/pdf/1903.05196.pdf)
 
 The project can be broken into three major parts:
-1. Website with the ML model in the backend for the building manager to use
+1. Website with the backend ML model for the building manager to use
 2. Script for the developers to maintain the database and train new models
 3. Hosting the website on Azure
 
@@ -38,7 +38,7 @@ Project Folder Structure
     |   ├── example_input       # folder that contains examples training/inferencing csv data files
         │   ├── example.csv                    # format of inferencing data for building managers to upload
         │   ├── example-training.csv           # format of training data for developers to upload
-        │   ├── training_data_2.csv       
+        │   ├── training_data_2.csv            # training data we used for the ML model
         │   └── training_Data_winter.csv
     |   ├── static              
         |   └── style.css                      # we have not spent a lot of time to make the website aesthetically pleasing.
@@ -123,6 +123,8 @@ The users can also compare how the energy consumption differs by changing some o
 * building cladding type
 * setpoint temperature
 * relative humidity
+
+
 Where the prediction will plot graphs that compare the original and alternative energy comsumption instead.
 
 ##### Usage
