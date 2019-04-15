@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="057d48f0-357f-4263-91e7-fbb424592117" name="Default Changelist" comment="fixing input csv option with the new attributes update">
-      <change beforePath="$PROJECT_DIR$/ML_Fullstack/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ML_Fullstack/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -33,7 +33,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ML_Fullstack/requirements.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="68">
@@ -92,11 +92,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/requirements.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="17" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
+            <state relative-caret-position="68">
+              <caret line="4" column="14" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -146,7 +146,6 @@
         <option value="$PROJECT_DIR$/__init__.py" />
         <option value="$PROJECT_DIR$/MM_Machine Learning/compare.py" />
         <option value="$PROJECT_DIR$/data_utils/__init__.py" />
-        <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/ML_Fullstack/__init__.py" />
         <option value="$PROJECT_DIR$/startup.txt" />
         <option value="$PROJECT_DIR$/deploy_app.py" />
@@ -164,6 +163,7 @@
         <option value="$PROJECT_DIR$/data_utils/utils.py" />
         <option value="$PROJECT_DIR$/data_utils/data_utils.py" />
         <option value="$PROJECT_DIR$/ML_Fullstack/requirements.txt" />
+        <option value="$PROJECT_DIR$/requirements.txt" />
       </list>
     </option>
   </component>
@@ -191,11 +191,6 @@
               <item name="MM-Project" type="b2602c69:ProjectViewProjectNode" />
               <item name="MM-Project" type="462c0819:PsiDirectoryNode" />
               <item name="data_utils" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MM-Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MM-Project" type="462c0819:PsiDirectoryNode" />
-              <item name="ML_Fullstack" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -593,13 +588,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/requirements.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="17" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data_utils/utils.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -628,6 +616,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ML_Fullstack/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="14" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="14" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
