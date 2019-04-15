@@ -11,6 +11,9 @@ cnxn = pyodbc.connect(driver=driver_names[0], host='mm490-building.database.wind
                       user='mm490admin', password='DDGLZ490mm')
 cursor = cnxn.cursor()
 
+'''
+Old stuff following old attributes. Probably safe to delete
+'''
 class Feature:
     '''
     DATE = 'Date'
@@ -33,7 +36,9 @@ class Feature:
     SH = 'SolarIrradiation_Horizontal'
     OUT_TEMP = 'OutsideTemp'
 
-
+'''
+Old stuff following old attributes. Probably safe to delete
+'''
 class Output:
     '''
     COOLING = 'Total Space Cooling - Kwh'
@@ -43,7 +48,9 @@ class Output:
     HEATING = 'HeatingEnergy'
     COOLING = 'CoolingEnergy'
 
-
+'''
+Old stuff following old attributes. Probably safe to delete
+'''
 def load_data_from_csv(data_file):
     df = pd.read_csv(data_file, header=0)
 
@@ -52,7 +59,9 @@ def load_data_from_csv(data_file):
     labels = df.filter(items=[Output.HEATING, Output.COOLING ])
     return data, labels
 
-
+'''
+load both the input attributes and ground-truth labels 
+'''
 def load_data_from_db(table='dbo.building_data'):
 
     query = "SELECT * FROM {}".format(table)
@@ -70,6 +79,7 @@ def load_data_from_db(table='dbo.building_data'):
 
     return attributes_df.values, labels_df.values
 
+#Just a hack here, since some of our data has 24:00 as 0:00
 def get_hour(hour):
     if hour == 24:
         return 0
@@ -106,6 +116,7 @@ def add_to_database(data_file):
     data = pd.read_csv(data_file, header=0)
     complete_data(data)
 
+    #it seems that cnxn can't take numpy.int64 type. So converting numbers to float
     vals = [(data[data.columns[0]][i],
             float(data[data.columns[1]][i]),
             datetime.datetime(1970, int(data[data.columns[3]][i]), int(data[data.columns[4]][i]), get_hour(int(data[data.columns[5]][i])), 0, 0),

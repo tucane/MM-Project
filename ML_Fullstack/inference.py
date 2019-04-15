@@ -24,6 +24,7 @@ class Model:
         except IOError:
             print(weights_path + " does not exist")
 
+    #change for different training algorithm/hyperparameters
     def train(self, data, labels, path):
         if not self.regressor:
             self.regressor = RandomForestRegressor()
@@ -35,7 +36,7 @@ class Model:
     def predict(self, building_data):
         return self.regressor.predict(building_data)
 
-
+#convert the regular input fields to data used by the ML model
 def form_to_data(form):
     building_volume = form['building_volume'].data
     from_date = form["from_date"].data
@@ -60,6 +61,7 @@ def form_to_data(form):
 
     return result
 
+#convert the comparative input fields to data used by the ML model
 def comparative_form_to_data(form):
     building_volume = form['building_volume'].data
     building_volume2 = form['building_volume2'].data
@@ -95,6 +97,7 @@ def comparative_form_to_data(form):
 
     return result1, result2
 
+#convert the uploaded csv file to data used by the ML model
 def file_to_data(df):
     #get R value from the building type
     df['RValue'] = df.apply(lambda x: getRValue(x[df.columns[2]]), axis=1)

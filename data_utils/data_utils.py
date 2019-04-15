@@ -5,6 +5,9 @@ import matplotlib.pyplot as plt
 import io
 import base64
 
+'''
+If data is missing, complete it by taking using the fill_empty_data function
+'''
 def complete_data(data):
     complete_indices = [1, 6, 9, 11, 12, 13]
 
@@ -18,6 +21,7 @@ def fill_empty_data(df):
 
     #or implement your own
 
+#convert building type to a R value
 def getRValue(building_type):
     type_to_rVal = {"Glass": 10, "Steel": 50, "Concrete": 100, "Wood": 150}    #filler
 
@@ -30,6 +34,7 @@ def validateData():
     pass
     #fill in detail here
 
+#table to display the raw prediction result
 def generate_table(data, form):
     #create header
     excluded = ['estimate', 'input_file', 'csrf_token', 'from_date', 'to_date', 'compare']
@@ -39,7 +44,7 @@ def generate_table(data, form):
     r = np.array([f.data for f in form if f.id not in excluded])
     references = np.repeat(r[np.newaxis, :], data.shape[0], axis=0)
 
-    data = data.round(decimals=2)
+    data = data.round(decimals=2)    #just show 2 decimals
     days = np.array(get_between_dates(form['from_date'].data, form['to_date'].data))
     data_with_days = np.hstack((days[:, np.newaxis], data))
 
@@ -47,6 +52,7 @@ def generate_table(data, form):
 
     return [headers, results]
 
+#helper for convert the comparative prediction to csv
 def comparative_data_to_csv(data1, data2, form):
     excluded = ['estimate', 'input_file', 'csrf_token', 'from_date', 'to_date', 'original']
     headers = [f.name for f in form if f.id not in excluded]
@@ -65,7 +71,9 @@ def comparative_data_to_csv(data1, data2, form):
     return headers, results
 
 
-
+#################
+#The following functions are used for plotting
+#################
 def plot_daily(days, heating, cooling):
 
     heating_plot_url = plot_day_to_energy(days, heating, "Heating Consumption Trend")
@@ -172,7 +180,11 @@ def plot_comparative_cum_day_energy(days, energy, energy2, title):
 
     return plot_url
 
+###################
+#End plotting
+###################
 
+#return a list of datetimes betwen from_date to to_date
 def get_between_dates(from_date, to_date):
     day_between = (to_date - from_date).days + 1    #inclusive
 

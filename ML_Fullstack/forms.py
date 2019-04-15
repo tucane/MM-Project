@@ -1,6 +1,9 @@
 from flask_wtf import FlaskForm
 from wtforms import DateField, SelectField, DecimalField, IntegerField, SubmitField, FileField, validators, StringField
 
+'''
+Input fields for index.html
+'''
 class BuildingForm(FlaskForm):
     building_name = StringField('building_name')
     building_volume = DecimalField('building_volume')

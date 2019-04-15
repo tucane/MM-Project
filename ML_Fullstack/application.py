@@ -11,7 +11,7 @@ import pandas as pd
 from data_utils.data_utils import generate_table, plot_daily, plot_comparative_daily, comparative_data_to_csv
 from . import app
 
-
+#default model. Change this if need to use model with another name
 model = Model(os.path.join(module_dir, 'weights/default_weights.joblib'))
 
 @app.route('/')
@@ -55,6 +55,8 @@ def prediction():
             heating_plt, cooling_plt, heating_cum_plt, cooling_cum_plt = plot_daily(days, heating_data, cooling_data)
 
             display = generate_table(result, form)
+
+            #need to pass the raw data to the new html page if the user wants to download the prediction
             session['header'] = csv_line(display[0])
             session['data'] = "\n".join(csv_line(line) for line in display[1])
             return render_template('prediction.html', value=display, plot1=heating_plt, plot2=cooling_plt, plot3=heating_cum_plt, plot4=cooling_cum_plt)
@@ -96,6 +98,7 @@ def comparative_predict():
                 #plotting
                 days = ["{}/{}".format(d[1], d[2]) for d in building1_data[::24]]  # take a data per 24 datapoints to represent day
 
+                #similar idea as regular input, but with two an original and an alternative
                 heating_data1 = result1[:, 0]
                 heating_data2 = result2[:, 0]
 
@@ -122,12 +125,15 @@ def comparative_predict():
 def file_downloads():
     return render_template('downloads.html')
 
+'''
+Export prediction data as csv for users to download
+'''
 @app.route('/download_data/',  methods = ['POST'])
 def download_data():
     if request.method == "POST":
         header = session.get('header')
         val = session.get('data')
-        session.clear()     #no longer needed
+        session.clear()     #data no longer needed
 
         csv = header + "\n" + val
         response = make_response(csv)
@@ -137,9 +143,11 @@ def download_data():
 
         return response
 
+#convert a list to a csv line
 def csv_line(line):
     return ",".join([str(d) for d in line])
 
+#result csv file if user chooses to upload data by csv
 def generate_outfile(result, df):
     #append the original file as reference
     df['Heating'] = result[:, 0]
