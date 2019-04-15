@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="057d48f0-357f-4263-91e7-fbb424592117" name="Default Changelist" comment="fixing input csv option with the new attributes update">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ML_Fullstack/application.py" beforeDir="false" afterPath="$PROJECT_DIR$/ML_Fullstack/application.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ML_Fullstack/example_input/Fake_Data_Winter.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ML_Fullstack/example_input/fake_data_2.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ML_Fullstack/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/ML_Fullstack/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ML_Fullstack/inference.py" beforeDir="false" afterPath="$PROJECT_DIR$/ML_Fullstack/inference.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_utils/data_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_utils/data_utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_utils/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_utils/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ML_Fullstack/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ML_Fullstack/requirements.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -31,7 +24,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/compare.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-244">
@@ -40,11 +33,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ML_Fullstack/requirements.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="98" column="6" selection-start-line="98" selection-start-column="6" selection-end-line="98" selection-end-column="6" />
+            <state relative-caret-position="68">
+              <caret line="4" column="14" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -170,6 +163,7 @@
         <option value="$PROJECT_DIR$/ML_Fullstack/inference.py" />
         <option value="$PROJECT_DIR$/data_utils/utils.py" />
         <option value="$PROJECT_DIR$/data_utils/data_utils.py" />
+        <option value="$PROJECT_DIR$/ML_Fullstack/requirements.txt" />
       </list>
     </option>
   </component>
@@ -508,9 +502,6 @@
     <entry file="file://$PROJECT_DIR$/data_utils/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/ML_Fullstack/requirements.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/ML_Fullstack/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -633,6 +624,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-244">
           <caret line="2" column="33" selection-start-line="2" selection-start-column="33" selection-end-line="2" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ML_Fullstack/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="14" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
         </state>
       </provider>
     </entry>
