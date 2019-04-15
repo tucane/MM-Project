@@ -188,7 +188,7 @@ def plot_comparative_cum_day_energy(days, energy, energy2, title):
 def get_between_dates(from_date, to_date):
     day_between = (to_date - from_date).days + 1    #inclusive
 
-    if day_between <= 0:        #should have to_data after start date
+    if day_between <= 0:        #should have to_data after start date.
         day_between = 1
 
     return [from_date + datetime.timedelta(i) for i in range(day_between)]

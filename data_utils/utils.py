@@ -4,11 +4,20 @@ import pyodbc
 import datetime
 from data_utils.data_utils import complete_data, getRValue
 
+########################
+# Database credential
+########################
+host_name = ''
+database_name = ''
+user_name = ''
+pwd = ''
+#########################
+
 driver_names = [x for x in pyodbc.drivers() if x.endswith(' for SQL Server')]
 if not driver_names:
     raise Exception("No pyodbc driver to connect to database")
-cnxn = pyodbc.connect(driver=driver_names[0], host='mm490-building.database.windows.net', database='Building_Data',
-                      user='mm490admin', password='DDGLZ490mm')
+cnxn = pyodbc.connect(driver=driver_names[0], host=host_name, database=database_name,
+                      user=user_name, password=pwd)
 cursor = cnxn.cursor()
 
 '''
