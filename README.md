@@ -18,7 +18,7 @@ Project Detail:
 --------
 We have implemented the basic machine learning model to predict the expected building energy efficiency, as well as a website for the 
 building managers to upload and predict their building energy data. <br />
-Due to limited resource, we were not able to make an energy optimization 
+Due to limited time and resources, we were not able to make an energy optimization 
 solution using deep reinforcement learning. (for example, https://arxiv.org/pdf/1903.05196.pdf)
 
 The project can be broken into three major parts:
@@ -153,11 +153,11 @@ and update **data_utils.utils.py** for the new database connection. I created my
 
 ##### Adding new data to database
 Given a csv training data file (see MM_Fullstack/example_input/example-training.csv). The developer can exeucte <br />
-`main.py add MM_Fullstack/example_input/example-training.csv` to add the new data to database. <br />
+`main.py add MM_Fullstack/example_input/<training-file-name.csv>` to add the new data to database. <br />
 
 ##### Training new model for the website
 The developer can re-train the model using all the data in the database by executing <br />
-`main.py train MM_Fullstack/weights/<new_model_filename>`
+`main.py train MM_Fullstack/weights/<new-model-filename.joblib>`
 
 ### Hosting the website on Azure
 Similar to the database, this part needs to be re-setup since I am currently using my person Azure account to host the website.
@@ -166,7 +166,36 @@ The Azure startup file has already been created (./startup.txt).
 
 Future Improvement/TODO
 --------
+### Gather More Real World Data
+We did not collect enough real world data (the real world data did not have the desired attributes) to train the model. Most of the data that we used are from a building simulator or generated using a formula. As a machine learning problem, the quality and quantity of data must be get a meaningful result.
 
+### Hyperparameter Tuning for Machine Learning Model
+Since the quality and quantity of data were subpar, we did not spend time on actually tuning the RandomForestRegressor hyparameters for a better model performance, but instead focused on the visulization tool for the building managers. <br />
+To change the actual model/tune hyperparameters, modify `Model.train` in ML_Fullstack/inference.py
+
+### Incomplete Data Completion and Corrupt Data Detection
+According to our client, corrupt sensors are very common, and will result in blank or wrong data. <br />
+We have added a simple data completion function `complete_data` in data_utils/data_utils.py that simply fills the complete data
+by taking the average of the column. A better method may be:
+> With enough building data, we can fit a model for each of the attribute columns. We can then use the model to detect if the attribute value is an outlier/invalid (detect corrupted data) or fill in the expected value (data completion).
+
+### R Value Calculation
+We are currently using a placeholder fomula to convert building cladding type to R value. A actual conversion formula is needed in order for the attribute to be meaningful. <br />
+Modify `getRValue` in data_utils/data_utils.py.
+
+### Autofill Solar Irradiation Values
+Solar irradiation is not normally known by the building managers. Instead, the website should be able to automatically pull the solar irradiation data from the building location.
+Modify the html files and ML_Fullstack/forms.py to remove solar irradiation values as required input for building managers.
+
+### Actual Cost Calculation
+Building managers are not only interested in the building performance comparison, but also on how much money/resources they can save. Incoperate cost management calculation to the project.
+
+### General Code Improvement
+Due to limited time and resources, we have simplifed/hacked the code instead of following good software development practice:
+* Configuration files to set up the database instead of hard coded variables (data_utils/utils.py)
+* Instead of plain server name and password for DB connection, follow https://docs.microsoft.com/en-us/azure/key-vault/key-vault-developers-guide
+* We are using flask session to pass the prediction data between flask routes. Use database or redis instead?
+* Use setup.py to for Python to access sibiling modules instead of sys.append? Files in ML_Fullstack module needs to import from data_utils module. See https://stackoverflow.com/questions/6323860/sibling-package-imports.
 
 FAQ/Problems That I've Encountered
 --------
