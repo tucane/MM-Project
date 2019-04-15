@@ -108,13 +108,16 @@ The building data that the building manager must provide are:
 * building location          
 * outside temperature
 * relative humidity
-<br /> <br />
+
+
 Most of which are variables used in the ML model, with a few bookkeeping variables such as building name. <br />
 Note: the ML prediction is hourly, but the prediction that the building managers see is aggregated daily sum.
 The user can manully input the fields in the website, or upload the input as a csv file. Csv file input follows a slightly different format, see MM_Fullstack/example_input/example.csv
-<br /> <br />
+
+
 The website will consequently make prediction based on the input, and plot the results visually.
-<br /> <br />
+
+
 The users can also compare how the energy consumption differs by changing some of the input attributes. The user can click the **Switch To Comparative Input** button to use the comparing feature, where the following attributes take both an original and alternative value:
 * building volume
 * building cladding type
@@ -129,7 +132,7 @@ Simply execute deploy_app.py with no arguments to run the flask web app locally.
 This is a helper script for the developers who are responsible for this project to 
 * maintain the database 
 * re-train the models.
-We don't currently have much data in our hand, as building data may be sensitive information, and require a lot of effort to obtain them. The way the project is set up so that the developers can always add more data to the data base and re-train the backend model.
+We don't currently have much data in our hand, as building data may be sensitive information, and require a lot of effort to obtain them. The developers can always add more data to the data base and re-train the backend model.
 
 ##### Database setup
 The database will need to be re-setup to continue the project, as I am using the database in my personal Azure account. The database only has 1 table named building_data (since that's all it needs for now), with the following columns:
@@ -150,11 +153,11 @@ and update **data_utils.utils.py** for the new database connection. I created my
 
 ##### Adding new data to database
 Given a csv training data file (see MM_Fullstack/example_input/example-training.csv). The developer can exeucte <br />
-"main.py add MM_Fullstack/example_input/example-training.csv" to add the new data to database. <br />
+`main.py add MM_Fullstack/example_input/example-training.csv` to add the new data to database. <br />
 
 ##### Training new model for the website
 The developer can re-train the model using all the data in the database by executing <br />
-"main.py train MM_Fullstack/weights/<new_model_filename>"
+`main.py train MM_Fullstack/weights/<new_model_filename>`
 
 ### Hosting the website on Azure
 Similar to the database, this part needs to be re-setup since I am currently using my person Azure account to host the website.
